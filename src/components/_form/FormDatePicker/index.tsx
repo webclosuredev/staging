@@ -24,6 +24,7 @@ export const FormDatePicker = memo(
             label={label}
             enableErrors={!!error}
             validationMessage={error ?? undefined}
+            secureTextEntry={false}
           />
         )}
       />

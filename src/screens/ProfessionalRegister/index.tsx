@@ -11,6 +11,7 @@ import { styles } from "./styles";
 import { AnimatedProgressBar } from "@app/components/AnimatedProgressBar";
 import { ScrollView } from "react-native";
 import { colorTokens } from "@app/theme/colors/tokens";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export const ProfessionalRegisterScreen = () => {
   const {
@@ -171,25 +172,28 @@ export const ProfessionalRegisterScreen = () => {
   };
 
   return (
-    <View style={styles.pageContainer}>
-      <FormProvider {...formData}>
-        <AnimatedProgressBar
-          value={currentStepCompletionPercentage}
-          duration={250}
-        />
-        <ScrollView style={styles.stepContent}>
-          {stepperIndex === 1 ? (
-            renderStep1()
-          ) : stepperIndex === 2 ? (
-            renderStep2()
-          ) : stepperIndex === 3 ? (
-            renderStep3()
-          ) : (
-            <View />
-          )}
-          {renderStepControls()}
-        </ScrollView>
-      </FormProvider>
-    </View>
+    <KeyboardAwareScrollView style={styles.pageContainer}>
+      <View style={styles.pageContainer}>
+        
+            <FormProvider {...formData}>
+              <AnimatedProgressBar
+                value={currentStepCompletionPercentage}
+                duration={250}
+              />
+              <ScrollView style={styles.stepContent}>
+                {stepperIndex === 1 ? (
+                  renderStep1()
+                ) : stepperIndex === 2 ? (
+                  renderStep2()
+                ) : stepperIndex === 3 ? (
+                  renderStep3()
+                ) : (
+                  <View />
+                )}
+                {renderStepControls()}
+              </ScrollView>
+            </FormProvider>
+      </View>
+    </KeyboardAwareScrollView>
   );
 };
