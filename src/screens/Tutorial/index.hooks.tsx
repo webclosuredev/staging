@@ -112,7 +112,9 @@ export const useTutorialScreen = () => {
   }, [fill1, resetAnimations]);
 
   return {
+    bgImages,
     bgImage,
+    subtitles,
     subtitle,
     fill1Anim,
     fill2Anim,
